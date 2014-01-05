@@ -1,0 +1,192 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+
+/* Space out content a bit */
+body {
+    padding-top: 60px; // compensate for header
+    padding-bottom: 90px; // compensate for footer
+}
+
+/* Helper Classes
+-------------------------------------------------- */
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pointer {
+  cursor: pointer;
+}
+
+/* Header
+-------------------------------------------------- */
+
+.instruction-header {
+    color: white;
+}
+
+/* Track-Table
+-------------------------------------------------- */
+.track {
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+  .star {
+    cursor: pointer;
+  }
+  .pull-left {
+    margin-right: 15px
+  }
+  .media-object {
+    width: 38px;
+    height: 38px;
+  }
+  .star-rating {
+    text-align: right;
+    font-size: 18px;
+    line-height: 38px;
+  }
+  .play-button-xs {
+    display: none;
+  }
+  .control {
+    margin-top: 4px;
+    &.pause {
+      .glyphicon {
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/playing.gif);
+      }
+    }
+    &.play .glyphicon {
+      background-image: none;
+      &:before { 
+        content: "\e072";
+      }       
+    }
+
+  }
+}
+// hover state only in no-touch browsers
+.no-touch {
+  .track {
+    .control {
+      visibility: hidden;
+      &.pause {
+        visibility: visible;
+      }
+    }
+    &:hover {
+      .control {
+        visibility: visible;
+      }
+    }
+    &:hover.pause .glyphicon {
+      background-image: none;
+      &:before { 
+        content: "\e073";
+      }       
+    }
+  }
+}
+// bigger stars on touch devices
+.touch {
+  .track {
+    .star-rating {
+      font-size: 24px;
+    }
+  }
+}
+// special styles for smartphones
+@media (max-width: $screen-sm-min) {
+  .track {
+    .media-object {
+      width: 56px;
+      height: 56px;
+    }
+    .control {
+      margin-top: 15px;
+    };
+    .star-rating {
+      text-align: left;
+      margin-top: 15px;
+      line-height: 24px;
+    }
+    .play-button-xs {
+      margin-left: 85px;
+      margin-top: -11px;
+      display: inline;
+    }
+    .star-rating {
+      display: inline;
+    }
+  }
+}
+
+/* Footer
+-------------------------------------------------- */
+
+.app-footer {
+  height: 90px;
+  background-color: white;
+  border-top: 1px solid #ddd;
+  opacity: 0.93;
+  .deezer {
+    position: absolute;
+    right: 2px;
+    bottom: 85px;
+    width: 57px;
+    height: 32px;
+    background-image: url(../images/deezer.png);
+  }
+}
+
+/* Player
+-------------------------------------------------- */
+
+.music-player {
+  img.cover {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: 66px;
+    height: 66px;
+  }
+  .meta-data {
+    margin: 15px 100px 0 100px;
+    text-align: center;
+  }
+  .controls {
+    margin: 15px 100px 0 100px;
+    text-align: center;    
+  }
+  .volume {
+    position: absolute;
+    right: 15px;
+    top: 37px;
+    .glyphicon-volume-off {
+      color: red;
+    }
+  }
+  .play, .pause {
+    cursor: pointer;
+  }
+  input[type='range'] {
+    width: 40px;
+    background: #333333;
+    -webkit-appearance: none;
+    height: 2px; /* increase height to compensate outline */
+    padding: 0;
+    vertical-align: super;
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-color: #333333;
+      width: 10px;
+      height: 10px;
+      border-radius: 100px;
+    }
+  }
+
+}

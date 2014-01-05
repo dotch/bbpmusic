@@ -1,0 +1,24 @@
+<div class="deezer">
+</div>
+<div class="app-footer navbar navbar-fixed-bottom music-player">
+  <img src="<%= cover %>" class="cover">
+  <div class="meta-data truncate">
+    <span><%= artist %></span> — <span><%= title %></span>
+  </div>
+  <div class="controls <%if(isPlaying){%> <%= "pause" %> <%} else {%> <%= "play" %><%}%>" id="play-pause">
+    <button class="btn btn-default btn-sm">
+      <span class="glyphicon <%if(isPlaying){%> <%= "glyphicon-pause" %> <%} else {%> <%= "glyphicon-play" %><%}%>">
+      </span>
+    </button>
+  </div>
+  <div class="volume">
+    <% if (volume === 0) { %>
+      <span class="glyphicon glyphicon-volume-off"></span>
+    <% } else if (volume < 50) { %>
+      <span class="glyphicon glyphicon-volume-down"></span>
+    <% } else { %>
+      <span class="glyphicon glyphicon-volume-up"></span>
+    <% } %>
+    <input type="range" min="0" max="100" value="<%= volume %>" step="1" id="volume" name="volume">
+  </div>
+</div>
