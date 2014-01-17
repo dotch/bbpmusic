@@ -1,17 +1,30 @@
-<div class="deezer">
-</div>
 <div class="app-footer navbar navbar-fixed-bottom music-player">
+  <div class="deezer">
+  </div>
   <img src="<%= cover %>" class="cover">
-  <div class="meta-data truncate">
-    <span><%= artist %></span> — <span><%= title %></span>
+  <div class="meta-data">
+    <div class="row">
+      <div class="col-xs-9 col-sm-12">
+        <div class="hidden-xs truncated"><%= artist %> — <%= title %></div>
+        <div class="visible-xs">
+          <div class="truncate">
+            <%= title %>
+          </div>
+          <div class="truncate">
+            <span class="small text-muted"><%= artist %></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-3 col-sm-12 controls <%if(isPlaying){%> <%= "pause" %> <%} else {%> <%= "play" %><%}%>" id="play-pause">
+        <button class="btn btn-default btn-sm">
+          <span class="glyphicon <%if(isPlaying){%> <%= "glyphicon-pause" %> <%} else {%> <%= "glyphicon-play" %><%}%>">
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="controls <%if(isPlaying){%> <%= "pause" %> <%} else {%> <%= "play" %><%}%>" id="play-pause">
-    <button class="btn btn-default btn-sm">
-      <span class="glyphicon <%if(isPlaying){%> <%= "glyphicon-pause" %> <%} else {%> <%= "glyphicon-play" %><%}%>">
-      </span>
-    </button>
-  </div>
-  <div class="volume">
+
+  <div class="volume hidden-xs">
     <% if (volume === 0) { %>
       <span class="glyphicon glyphicon-volume-off"></span>
     <% } else if (volume < 50) { %>

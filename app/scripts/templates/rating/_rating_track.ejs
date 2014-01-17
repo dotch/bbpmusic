@@ -1,6 +1,6 @@
 <div class="row track">
   <!-- Play Button -->
-  <div class="hidden-xs col-sm-1 col-md-1">
+  <div class="hidden-xs col-sm-1">
     <button class="btn btn-default btn-sm control <% if(isPlaying){%> <%= 'pause' %> <%} else {%> <%= 'play' %> <%}%>" >
       <span class="glyphicon">
       </span>
@@ -8,26 +8,36 @@
   </div>
   <!-- End Play Button -->
   <!-- Media Element -->
-  <div class="col-xs-12 col-sm-7 col-md-7">
+  <div class="col-xs-12 col-sm-7">
     <div class="media">
       <div class="pull-left">
         <img class="media-object" src="<%= cover %>" alt="">
       </div>
       <div class="media-body">
-        <span class="title"><%= title %><br/>
-        <span class="artist small text-muted"><%= artist %></span>
-      </div>      
+        <div class="row">
+          <div class="col-xs-8 col-sm-12">
+            <span class="title"><%= title %><br/>
+            <span class="artist small text-muted"><%= artist %></span>
+          </div>
+          <div class="col-xs-4 visible-xs text-right">
+            <button class="play-button-xs btn btn-default btn-sm control <% if(isPlaying){%> <%= 'pause' %> <%} else {%> <%= 'play' %> <%}%>" >
+              <span class="glyphicon">
+              </span>
+            </button>            
+          </div>
+        </div>
+      </div>
     </div>      
   </div>
   <!-- End Media Element -->
   <!-- Play Button Mini -->
-  <button class="play-button-xs btn btn-default btn-sm control <% if(isPlaying){%> <%= 'pause' %> <%} else {%> <%= 'play' %> <%}%>" >
-    <span class="glyphicon">
-    </span>
-  </button>
+<!--  -->
   <!-- End Play Button -->
   <!-- Star Rating -->
-  <div class="col-sm-3 col-md-3 star-rating"> 
+
+  <!-- End Star Rating -->
+  <!-- for symmetry -->
+  <div class="col-xs-12 col-sm-3 star-rating"> 
     <span class="star glyphicon <%if(rating > 0){%> <%= "glyphicon-star" %> <%} else {%> <%= "glyphicon-star-empty" %><%}%>" 
         data-value="1">
     </span>
@@ -43,10 +53,8 @@
     <span class="star glyphicon <%if(rating > 4){%> <%= "glyphicon-star" %> <%} else {%> <%= "glyphicon-star-empty" %><%}%>" 
         data-value="5">
     </span>
-  </div>
-  <!-- End Star Rating -->
-  <!-- for symmetry -->
-  <div class="hidden-xs col-sm-1 col-md-1"></div>
+  </div>  
+  <div class="hidden-xs col-sm-1"></div>
 </div>
 
 <!-- <div class="row track">

@@ -48,15 +48,12 @@ body {
     font-size: 18px;
     line-height: 38px;
   }
-  .play-button-xs {
-    display: none;
-  }
   .control {
     margin-top: 4px;
     &.pause {
       .glyphicon {
-        width: 14px;
-        height: 14px;
+        width: 12px;
+        height: 12px;
         background-image: url(../images/playing.gif);
       }
     }
@@ -77,58 +74,49 @@ body {
       &.pause {
         visibility: visible;
       }
+      &:hover.pause .glyphicon {
+        background-image: none;
+        &:before { 
+          content: "\e073";
+        }       
+      }
     }
     &:hover {
       .control {
         visibility: visible;
       }
     }
-    &:hover.pause .glyphicon {
-      background-image: none;
-      &:before { 
-        content: "\e073";
-      }       
-    }
+
   }
 }
 // bigger stars on touch devices
 .touch {
   .track {
     .star-rating {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }
 // special styles for smartphones
-@media (max-width: $screen-sm-min) {
+@media (max-width: $screen-xs-max) {
   .track {
-    .media-object {
-      width: 56px;
-      height: 56px;
+    padding: 15px 0 10px 0;
+    .pull-left {
+      margin-right: 12px
     }
-    .control {
-      margin-top: 15px;
-    };
     .star-rating {
-      text-align: left;
-      margin-top: 15px;
+      margin-top: 12px;
+      text-align: center;
       line-height: 24px;
-    }
-    .play-button-xs {
-      margin-left: 85px;
-      margin-top: -11px;
-      display: inline;
-    }
-    .star-rating {
-      display: inline;
     }
   }
 }
 
-/* Footer
+
+/* Player
 -------------------------------------------------- */
 
-.app-footer {
+.music-player {
   height: 90px;
   background-color: white;
   border-top: 1px solid #ddd;
@@ -141,13 +129,7 @@ body {
     height: 32px;
     background-image: url(../images/deezer.png);
   }
-}
-
-/* Player
--------------------------------------------------- */
-
-.music-player {
-  img.cover {
+  .cover {
     position: absolute;
     left: 12px;
     top: 12px;
@@ -155,12 +137,8 @@ body {
     height: 66px;
   }
   .meta-data {
-    margin: 15px 100px 0 100px;
+    padding: 15px 100px;
     text-align: center;
-  }
-  .controls {
-    margin: 15px 100px 0 100px;
-    text-align: center;    
   }
   .volume {
     position: absolute;
@@ -188,5 +166,29 @@ body {
       border-radius: 100px;
     }
   }
-
+}
+// special styles for smartphones
+@media (max-width: $screen-xs-max) {
+  .music-player  {
+    height: 60px;
+    .meta-data {
+      width: 100%;
+      padding: 10px 10px 0 73px;
+      text-align: left;
+    }
+    .cover {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 60px;
+      height: 60px;
+    }
+    .controls {
+      text-align: right;
+      margin-top: 4px;
+    }
+    .deezer {
+      bottom: 55px;
+    }
+  }
 }

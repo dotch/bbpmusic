@@ -7,6 +7,9 @@
       tracksRegion:  "#tracks-region"
       playerRegion:  "#player-region"
 
+    triggers:
+      "click #next": "next:button:clicked"
+
   class Rating.TrackView extends App.Views.ItemView
     initialize: ->
       unless @model.has("rating")
